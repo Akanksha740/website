@@ -1,0 +1,108 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-image: url(https://images.unsplash.com/photo-1478720568477-152d9b164e26?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80);
+    background-size: cover;
+    height: 100vh;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.9em;
+}
+
+.card {
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    height: 400px;
+    width: 270px;
+    margin-right: 3rem;
+    cursor: pointer;
+    min-width: 230px;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+.card:hover .gradient {
+    opacity: 1;
+}
+
+.gradient {
+    background-image: linear-gradient(0deg, #009ece, transparent);
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.info {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 2rem;
+    margin-top: 3rem;
+}
+
+.text {
+    font-size: 2.1em;
+}
+
+.title {
+    font-size: 2.2em;
+    font-weight: 700;
+}
+
+.time {
+    position: absolute;
+    bottom: 0;
+    padding: 2rem;
+}
+
+.aka {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background-color: #000;
+    font-family: sans-serif;
+}
+
+
+/* styling the button*/
+
+.anku {
+    padding: 20px 20px;
+    border: 1px solid white;
+    display: inline-block;
+    color: white;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 1em;
+    overflow: hidden;
+    margin-top: 20px;
+    margin-right: 20px;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+
+/creating animation effect/
+
+.anku:hover {
+    color: #111;
+    background: #03e9f4;
+    box-shadow: 0 0 20px #03e9f4;
+}
