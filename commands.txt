@@ -1,0 +1,286 @@
+flicks commands
+
+
+
+
+-- Database: `flicks`
+
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `genres`
+--
+
+DROP TABLE IF EXISTS `genres`;
+CREATE TABLE IF NOT EXISTS `genres` (
+  `genre` varchar(255) NOT NULL,
+  `director` varchar(255) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`),
+  KEY `id` (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=33 DEFAULT CHARSET=latin1;
+
+--
+--
+--
+
+INSERT INTO `genres` (`genre`, `director`, `id`) VALUES
+('Animation', 'Eric Darnell', 1),
+('Animation', 'Chris Wedge', 2),
+('Animation', 'Steven Spielberg', 3),
+('Animation', 'Eric Darnell', 4),
+('Animation', 'Chris Miller', 5),
+('Animation', 'Dean Debolis', 6),
+('romcom', 'chris miller', 7),
+('romcom', 'Amy Heckerling', 8),
+('romcom', 'Mark Waters', 9),
+('horror', 'james wan', 10),
+('horror', 'james wan', 11),
+('horror', 'Nicolas Pesce', 12),
+('horror', 'John R Leonetti', 13),
+('horror', 'Corin Hardy', 14),
+('horror', 'Andres Muschietti', 15),
+('sci fi', 'Denis Villeneuve', 16),
+('sci fi', 'Christopher Nolan', 17),
+('sci fi', 'Christopher Nolan', 18),
+('sci fi', 'Lana Wachowski', 19),
+('sci fi', 'James Cameron', 20),
+('sci fi', 'Rupert Wyatt', 21),
+('comedy', 'Chris Miller', 22),
+('comedy', 'Steven Soderbergh', 23),
+('comedy', 'James Gunn', 24),
+('comedy', 'Patrick Read Johnson', 25),
+('comedy', 'Rob Minkoff', 26),
+('comedy', 'Chris columbus', 27),
+('comedy', 'Joe Johnston', 28),
+('comedy', 'Jon Favreau', 29),
+('newnew', 'newnew', 32);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `images`
+--
+
+DROP TABLE IF EXISTS `images`;
+CREATE TABLE IF NOT EXISTS `images` (
+  `artist` varchar(255) NOT NULL,
+  `description` varchar(400) NOT NULL,
+  `year` varchar(255) NOT NULL,
+  `poster` varchar(255) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`),
+  KEY `id` (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=33 DEFAULT CHARSET=latin1;
+
+--
+-- 
+--
+
+INSERT INTO `images` (`artist`, `description`, `year`, `poster`, `id`) VALUES
+('Eric Darnell', 'The Dragon Warrior has to clash against the savage Tai Lung as Chinas fate hangs in the balance. However, the Dragon Warrior mantle is supposedly mistaken to be bestowed upon an obese panda who is a novice in martial arts.', '2008', 'upload/kungfupanda.jpg', 1),
+('Eric Darnell', 'The Madagascar animals join a struggling European circus to get back to New York, but find themselves being pursued by a psychotic animal control officer.', '2005', 'upload/madagascar.jpg', 2),
+('Steven Spielberg', 'Tintin finds himself in the middle of a mystery involving a drowned man, a tin of crab meat, and a piece of paper with the name Karaboudjan on it.', '2011', 'upload/tintin.jpg', 3),
+('Chris Wedge', 'The film takes place during a southward migration of species during a great ice age.Such migrations took place over millennia and were not the pre-Cambrian equivalent of going to Florida for the winter months, but no matter: As the ice packs advance, the animals retreat.', ' 2002', 'upload/iceage2.jpg', 4),
+('Chris Miller', 'Reluctantly designated as the heir to the land of Far, Far Away, Shrek hatches a plan to install the rebellious Artie as the new king while Princess Fiona tries to fend off a coup dÃ©tat by the jilted Prince Charming.', '2007', 'upload/shrek the third.jpg', 5),
+('Dean Debolis', 'A misfit Viking teenager (Jay Baruchel) sees a chance to change the course of his clans future when he befriends an injured dragon.', '2014', 'upload/dragon.jpg', 6),
+('hugh grant', 'An outrageous British woman (Renee Zellweger) decides to take control of her life, but instead falls for two very different men (Colin Firth).', '2001', 'upload/bridget jones.jpg', 7),
+('alicia silverstone', 'Shallow, rich and socially successful Cher is at the top of her Beverly Hills high schools pecking scale. Seeing herself as a matchmaker, Cher first coaxes two teachers into dating each other.', '1995', 'upload/clueless.jpg', 8),
+('alicia silverstone', 'Cady Heron is a hit with The Plastics, the Alist girl clique at her new school, until she makes the mistake of falling for Aaron Samuels, the boyfriend of alpha Plastic Regina George.', '2004', 'upload/mean girls.jpg', 9),
+('patrick wilson', 'Teenage girl tries to continue her normal social and school life, after her grandfather forces her into an arranged marriage with a man in his twenties.', '2011', 'upload/incidious.jpg', 10),
+('patrick wilson', 'Paranormal investigators Ed and Lorraine Warren work to help a family terrorized by a dark presence in their farmhouse.', '2017', 'upload/the conjuring.jpg', 11),
+('john cho', 'An American nurse living and working in Tokyo is exposed to a mysterious supernatural curse, one that locks a person in a powerful rage before claiming their life and spreading to another victim.', '2019', 'upload/the grudge.jpg', 12),
+('patrick wilson', 'A couple begins to experience terrifying supernatural occurrences involving a vintage doll shortly after their home is invaded by satanic cultists.', '2014', 'upload/anabelle.jpg', 13),
+('bonnie aarons', 'A priest with a haunted past and a novice on the threshold of her final vows are sent by the Vatican to investigate the death of a young nun in Romania and confront a malevolent force in the form of a demonic nun.', '2018', 'upload/the nun.jpg', 14),
+('finn wolfhard', 'In 1960, seven pre-teen outcasts fight an evil demon who poses as a child-killing clown. Thirty years later, they reunite to stop the demon once and for all when it returns to their hometown.', '2017', 'upload/it.jpg', 15),
+('amy adams', 'A linguist works with the military to communicate with alien lifeforms after twelve mysterious spacecrafts appear around the world.', '2016', 'upload/arrival.jpg', 16),
+('Matthew McConaughey', 'A team of explorers travel through a wormhole in space in an attempt to ensure humanitys survival.', '2014', 'upload/interstellar.jpg', 17),
+('Leonardo DiCaprio', 'A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O.', '2010', 'upload/inceptiion.jpg', 18),
+('Keanu Reeves', 'When a beautiful stranger leads computer hacker Neo to a forbidding underworld, he discovers the shocking truth the life he knows is the elaborate deception of an evil cyber intelligence.', '1999', 'upload/matrix.jpg', 19),
+('Zoe saldana', 'A paraplegic Marine dispatched to the moon Pandora on a unique mission becomes torn between following his orders and protecting the world he feels is his home.', '2009', 'upload/avatar.jpg', 20),
+('James franco', 'A substance designed to help the brain repair itself gives advanced intelligence to a chimpanzee who leads an ape uprising.', '2011', 'upload/rise of planet of apes.jpg', 21),
+('channing tatum', 'A pair of underachieving cops are sent back to a local high school to blend in and bring down a synthetic drug ring.', '2012', 'upload/21 jumpstreet.jpg', 22),
+('channing tatum', 'A male stripper teaches a younger performer how to party, pick up women, and make easy money.', '2012', 'upload/magic mike.jpg', 23),
+('chris pratt', 'A group of intergalactic criminals must pull together to stop a fanatical warrior with plans to purge the universe.', '2014', 'upload/guardians of galaxy.jpg', 24),
+('joe mantegna', 'After three kidnappers lose the baby they have kidnapped, both the cops and kidnappers go looking for the baby.', '1994', 'upload/babys day out.jpg', 25),
+('hugh laurie', 'The Little family adopt a charming young mouse named Stuart, but the family cat wants rid of him.', '1999', 'upload/stuart little.jpg', 26),
+('Macaulay Culkin', 'An eight year old troublemaker must protect his house from a pair of burglars when he is accidentally left home alone by his family during Christmas vacation.', '1997', 'upload/home alone.jpg', 27),
+('Robin williams', 'When two kids find and play a magical board game, they release a man trapped in it for decades  and a host of dangers that can only be stopped by finishing the game.', '1995', 'upload/jumangi.jpg', 28),
+('Dax shepard', 'Two young brothers are drawn into an intergalactic adventure when their house is hurled through the depths of space by the magical board game they are playing.', '2005', 'upload/zathura.jpg', 29),
+('newnew', 'newnew', 'newnew', 'upload/2020-11-24 (6).png', 32);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `movie`
+--
+
+DROP TABLE IF EXISTS `movie`;
+CREATE TABLE IF NOT EXISTS `movie` (
+  `movie` varchar(255) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`),
+  KEY `id` (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=33 DEFAULT CHARSET=latin1;
+
+--
+-- 
+--
+
+INSERT INTO `movie` (`movie`, `id`) VALUES
+('Kung Fu Panda', 1),
+('Madagascar', 2),
+('Tintin', 3),
+('ice age-2', 4),
+('Shrek the third', 5),
+('How to train your dragon', 6),
+('Bridget Jones Diary', 7),
+('Clueless', 8),
+('Mean Girls', 9),
+('Insidious', 10),
+('Conjuring', 11),
+('The Grudge', 12),
+('Annabelle', 13),
+('The NUN', 14),
+('IT', 15),
+('Arrival', 16),
+('Interstellar', 17),
+('Inception', 18),
+('Matrix', 19),
+('Avatar', 20),
+('the rise of planets of the apes', 21),
+('21 jumpstreet', 22),
+('magic mike', 23),
+('guardians of the galaxy', 24),
+('babys day out', 25),
+('Stuart little', 26),
+('Home alone', 27),
+('Jumanji', 28),
+('zathura A space adventure', 29),
+('newnew', 32);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ratee`
+--
+
+DROP TABLE IF EXISTS `ratee`;
+CREATE TABLE IF NOT EXISTS `ratee` (
+  `rate` float NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`),
+  KEY `id` (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=33 DEFAULT CHARSET=latin1;
+
+--
+-- 
+--
+
+INSERT INTO `ratee` (`rate`, `id`) VALUES
+(3.4, 1),
+(3.4, 2),
+(4.2, 3),
+(3.6, 4),
+(3.1, 5),
+(2.8, 6),
+(4.1, 7),
+(3.3, 8),
+(3.4, 9),
+(3.5, 10),
+(3.7, 11),
+(2.1, 12),
+(2.7, 13),
+(2.6, 14),
+(3.6, 15),
+(3.9, 16),
+(4.3, 17),
+(4.4, 18),
+(4.3, 19),
+(3.9, 20),
+(3.8, 21),
+(3.6, 22),
+(3.1, 23),
+(4, 24),
+(3.1, 25),
+(3, 26),
+(3.8, 27),
+(3.4, 28),
+(3.1, 29),
+(5, 32);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `usertable`
+--
+
+DROP TABLE IF EXISTS `usertable`;
+CREATE TABLE IF NOT EXISTS `usertable` (
+  `name` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  PRIMARY KEY (`name`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- 
+--
+
+INSERT INTO `usertable` (`name`, `password`) VALUES
+('ankp@gmail.com', '1212');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `videourl`
+--
+
+DROP TABLE IF EXISTS `videourl`;
+CREATE TABLE IF NOT EXISTS `videourl` (
+  `url` varchar(400) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`),
+  KEY `id` (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=33 DEFAULT CHARSET=latin1;
+
+--
+-- 
+--
+
+INSERT INTO `videourl` (`url`, `id`) VALUES
+('<iframe width=\"300\" height=\"300\" src=\"https://www.youtube.com/embed/10r9ozshGVE\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>', 1),
+('<iframe width=\"300\" height=\"300\" src=\"https://www.youtube.com/embed/A45jv8uhZwo\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>', 2),
+('<iframe width=\"300\" height=\"300\" src=\"https://www.youtube.com/embed/xz3j8gKRUTg\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>', 3),
+('<iframe width=\"300\" height=\"300\" src=\"https://www.youtube.com/embed/Ohq6NmKMja8\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>', 4),
+('<iframe width=\"300\" height=\"300\" src=\"https://www.youtube.com/embed/-x3fX6u1Fks\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>', 5),
+('<iframe width=\"300\" height=\"300\" src=\"https://www.youtube.com/embed/naW9U8MiUY0\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>', 6),
+('<iframe width=\"300\" height=\"300\" src=\"https://www.youtube.com/embed/EH9CWWqb-6E\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>', 7),
+('<iframe width=\"300\" height=\"300\" src=\"https://www.youtube.com/embed/yHDcD_xhwAo\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>', 8),
+('<iframe width=\"300\" height=\"300\" src=\"https://www.youtube.com/embed/V64B9WObjfg\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>', 9),
+('<iframe width=\"300\" height=\"300\" src=\"https://www.youtube.com/embed/acQyrwQyCOk\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>', 10),
+('<iframe width=\"300\" height=\"300\" src=\"https://www.youtube.com/embed/ejMMn0t58Lc\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>', 11),
+('<iframe width=\"300\" height=\"300\" src=\"https://www.youtube.com/embed/O2NKzO-fxwQ\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>', 12),
+('<iframe width=\"300\" height=\"300\" src=\"https://www.youtube.com/embed/paFgQNPGlsg\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>', 13),
+('<iframe width=\"300\" height=\"300\" src=\"https://www.youtube.com/embed/pzD9zGcUNrw\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>', 14),
+('<iframe width=\"300\" height=\"300\" src=\"https://www.youtube.com/embed/FnCdOQsX5kc\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>', 15),
+('<iframe width=\"300\" height=\"300\" src=\"https://www.youtube.com/embed/tFMo3UJ4B4g\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>', 16),
+('<iframe width=\"300\" height=\"300\" src=\"https://www.youtube.com/embed/zSWdZVtXT7E\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>', 17),
+('<iframe width=\"300\" height=\"300\" src=\"https://www.youtube.com/embed/YoHD9XEInc0\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>', 18),
+('<iframe width=\"300\" height=\"300\" src=\"https://www.youtube.com/embed/vKQi3bBA1y8\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>', 19),
+('<iframe width=\"300\" height=\"300\" src=\"https://www.youtube.com/embed/6ziBFh3V1aM\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>', 20),
+('<iframe width=\"300\" height=\"300\" src=\"https://www.youtube.com/embed/T3tidwW1gGM\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>', 21),
+('<iframe width=\"300\" height=\"300\" src=\"https://www.youtube.com/embed/RLoKtb4c4W0\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>', 22),
+('<iframe width=\"300\" height=\"300\" src=\"https://www.youtube.com/embed/oLoyU3xYwbs\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>', 23),
+('<iframe width=\"300\" height=\"300\" src=\"https://www.youtube.com/embed/2cv2ueYnKjg\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>', 24),
+('<iframe width=\"300\" height=\"300\" src=\"https://www.youtube.com/embed/gwxLcvROp2U\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>', 25),
+('<iframe width=\"300\" height=\"300\" src=\"https://www.youtube.com/embed/Wlo-sYrADlw\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>', 26),
+('<iframe width=\"300\" height=\"300\" src=\"https://www.youtube.com/embed/jEDaVHmw7r4\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>', 27),
+('<iframe width=\"300\" height=\"300\" src=\"https://www.youtube.com/embed/2QKg5SZ_35I\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>', 28),
+('<iframe width=\"300\" height=\"300\" src=\"https://www.youtube.com/embed/zNxm_obDpNU\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>', 29),
+('newnew', 32);
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

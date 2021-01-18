@@ -38,22 +38,23 @@
 	    <tbody>
 		<?php
 		
-		$con = mysqli_connect('localhost','root','','flicks');
+		$con = mysqli_connect('localhost','root','','flick');
         
 		
 				     
-			           $row = mysqli_query($con,"SELECT v.url,r.rate,m.movie,i.description,i.year,i.poster from genres g inner join images i on g.id=i.id inner join movie m on  g.id=m.id inner join ratee r on g.id=r.id inner join videourl v on  g.id=v.id");
+			           $row = mysqli_query($con,"Select m.movie_name,m.rating,r.description,r.year,r.poster,m.url from movie m inner join  mov_review r 
+					     on m.movie_review_id = r.movie_review_id inner join actors a on a.actor_id = r.actor_id ");
 				 
 				       while($result = mysqli_fetch_array($row)){
 						   
 						    ?>
 				
 				            <tr>
-				            <td> <?php echo $result['movie']; ?> </td>
-							<td> <?php for($x=1;$x<=$result['rate'];$x++) {
+				            <td> <?php echo $result['movie_name']; ?> </td>
+							<td> <?php for($x=1;$x<=$result['rating'];$x++) {
                                     echo '★';
                                   }
-                                  if (strpos($result['rate'],'.')) {
+                                  if (strpos($result['rating'],'.')) {
                                   echo '✯';
                                   $x++;
                                   }

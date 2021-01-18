@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Customize</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel="stylesheet" href="./customize.css">
+
+</head>
+
+<body>
+    <!-- partial:index.partial.html -->
+    <header class="header">
+        <div class="container header__top">
+            <div class="header__logo">
+                <h1 class="header__title">
+                    FLICK
+                    <span class="header__subtitle">Your Watchlist</span>
+                </h1>
+            </div>
+            <div class="header__cart">
+                <ul>
+                    <li class="header__submenu" id="submenu">
+                        <button class="header__cart-btn" id="toggle-cart-btn"><svg class="cart" width="0.1" height="0.4" viewBox="0 0 24 24">
+  <path d=""></path>
+</svg>Watchlist</button>
+                        <div id="shopping-cart" class="shopping-cart-container">
+                            <table id="cart-content">
+                                <thead>
+                                    <tr>
+                                        <th>Movie</th>
+                                        <th>Actor</th>
+                                        <th>Director</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="header__main">
+            <p class="display-title text-light">
+                Customize your Watchlist
+            </p>
+        </div>
+        
+  <path d="M11,4H13V16L18.5,10.5L19.92,11.92L12,19.84L4.08,11.92L5.5,10.5L11,16V4Z"></path>
+</svg></div>
+    </header>
+    <main class="container page-content">
+     
+		
+		
+		       <?php
+			    
+				$con = mysqli_connect('localhost','root','','flick');
+				
+				 $query = "select * from mov_review";
+				 
+				 			   /*if (!$check1_res) {
+                               printf("Error: %s\n", mysqli_error($con));
+                                exit();
+                                 }*/
+			   
+		         $que =  mysqli_query($con,$query);
+			   
+			     $number = mysqli_num_rows($que);
+				 
+				 if($number > 0){
+				 
+				      while( $display = mysqli_fetch_array($que)){
+				 
+				      print_r($display);
+					  
+					  
+					  }
+					}  
+			   ?>
+           
+            </div>
+        </div>
+    </main>
+    <!-- partial -->
+    <script src="./customize.js"></script>
+
+</body>
+
+</html>

@@ -41,11 +41,12 @@
 	    <tbody>
 		<?php
 		
-		$con = mysqli_connect('localhost','root','','flicks');
+		$con = mysqli_connect('localhost','root','','flick');
         
 		
 				    
-			           $row = mysqli_query($con,"SELECT v.url,i.artist,m.movie,i.description,i.year,i.poster from genres g inner join images i on g.id=i.id inner join movie m on  g.id=m.id inner join videourl v on  g.id=v.id");
+			           $row = mysqli_query($con,"Select m.movie_name,a.actor,r.description,r.year,r.poster,m.url from movie m inner join  mov_review r 
+					     on m.movie_review_id = r.movie_review_id inner join actors a on a.actor_id = r.actor_id ");
 				       
 					   
 					   
@@ -54,8 +55,8 @@
 						    ?>
 				
 				            <tr>
-							<td> <?php echo $result['movie']; ?> </td>
-							<td> <?php echo $result['artist']; ?> </td>
+							<td> <?php echo $result['movie_name']; ?> </td>
+							<td> <?php echo $result['actor']; ?> </td>
 				            <td> <?php echo $result['description']; ?> </td>
 					        <td> <?php echo $result['year']; ?> </td>
 		                    <td> <img src=" <?php echo $result['poster']; ?>"></td>

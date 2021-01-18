@@ -38,18 +38,19 @@
 	    <tbody>
 		<?php
 		
-		$con = mysqli_connect('localhost','root','','flicks');
+		$con = mysqli_connect('localhost','root','','flick');
         
 		
 				     
-			           $row = mysqli_query($con,"SELECT v.url,g.genre,m.movie,i.description,i.year,i.poster from genres g inner join images i on g.id=i.id  inner join movie m on g.id=m.id inner join videourl v on  g.id=v.id");
+			           $row = mysqli_query($con,"Select m.movie_name,g.genre,r.description,r.year,r.poster,m.url from movie m inner join  mov_review r 
+					     on m.movie_review_id = r.movie_review_id inner join genre g on g.genre_id = r.genre_id ");
 				 
 				       while($result = mysqli_fetch_array($row)){
 						   
 						    ?>
 				
 				            <tr>
-							<td> <?php echo $result['movie']; ?> </td>
+							<td> <?php echo $result['movie_name']; ?> </td>
 				            <td> <?php echo $result['genre']; ?> </td>
 		                    <td> <?php echo $result['description']; ?> </td>
 					        <td> <?php echo $result['year']; ?> </td>

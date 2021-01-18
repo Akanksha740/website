@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Image Upload</title>
+<title>new movie entry</title>
 
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -24,14 +24,19 @@
     <div class ="container">
 	    <br>
 	    <h1 class="text-white bg-dark text-center">
-	          upload images  
+	          create new entry  
 	    </h1>
 		<div class="col-lg-8">
         <form action="upload.php" method="post"  enctype="multipart/form-data">
-		    <div class="form-group">
-		    <label for="user"> artist </label>
-			<input type="text" name="artist" id="user" class="form-control">
+		    
+			 
+			 <div class="form-group">
+		    <label for="user"> MOVIE </label>
+			<input type="text" name="movie" id="user" class="form-control">
             </div>
+			
+
+		   
 			
 			<div class="rateyo" id= "rating"
          data-rateyo-rating="4"
@@ -61,45 +66,61 @@
 </script>
 
 			 <div class="form-group">
-		    <label for="user"> movie description </label>
+		    <label for="user"> EMBED CODE </label>
+			<input type="text" name="url" id="user" class="form-control">
+            </div>
+			 
+			 <div class="form-group">
+		    <label for="user"> MOVIE DESCRIPTION </label>
 			<input type="text" name="description" id="user" class="form-control">
             </div>
 			
+			
+			
 			<div class="form-group">
-		    <label for="user"> year </label>
+		    <label for="user"> YEAR </label>
 			<input type="text" name="year" id="user" class="form-control">
             </div>
 			
 			
 		    <div class="form-group">
-		    <label for="user"> genre </label>
+		    <label for="user"> GENRE </label>
 			<input type="text" name="genre" id="user" class="form-control">
             </div>
 			
 			 <div class="form-group">
-		    <label for="user"> url </label>
-			<input type="text" name="url" id="user" class="form-control">
+		    <label for="user"> ACTOR </label>
+			<input type="text" name="actor" id="user" class="form-control">
+            </div>
+			
+			<div class="form-group">
+		    <label for="user"> GENDER</label>
+			<input type="text" name="gender" id="user" class="form-control">
+            </div>
+			
+			<div class="form-group">
+		    <label for="user"> AGE </label>
+			<input type="text" name="age" id="user" class="form-control">
+            </div>
+			
+			 <div class="form-group">
+		    <label for="user"> DIRECTOR </label>
+			<input type="text" name="director" id="user" class="form-control">
             </div>
 
-			 <div class="form-group">
-		    <label for="user"> director </label>
-			<input type="text" name="director" id="user" class="form-control">
-            </div> 
+			 
 			
 			<div class="form-group">
-		    <label for="user"> movie </label>
-			<input type="text" name="movie" id="user" class="form-control">
-            </div> 
-			
-			
-			
-			
-			<div class="form-group">
-		    <label for="file"> image </label>
+		    <label for="file"> IMAGE </label>
 			<input type="file" name="file" id="file" class="form-control">
 
 			</div>
 			<input type="submit" name="submit" value="submit" class="btn-btn-success">
+			
+			
+			
+			
+			
 	    </form>
     </div>
 	</div>

@@ -28,7 +28,7 @@
                 <table class="order-table">
 	    <thread>
 		   <th>MOVIE</th>
-		   <th>ARTIST</th>
+		   <th>ACTOR</th>
 		   <th>MOVIE DESCRIPTION</th>
 		   <th>YEAR</th>
 		   <th>POSTER</th>
@@ -38,18 +38,26 @@
 	    <tbody>
 		<?php
 		
-		$con = mysqli_connect('localhost','root','','flicks');
+		$con = mysqli_connect('localhost','root','','flick');
         
 		
 		  if (isset($_POST['submit'])) {
 			  echo "<br>";
 			  echo "<br>";
 			  
-			$artist = $_POST['artist'];  
-			 print_r($artist);
+			$movie = $_POST['movie'];  
+			 print_r($movie);
+			 echo "<br>";
+			
+			$rating = $_POST['rating'];
+            print_r($rating);
 			 echo "<br>";
 			 
-			$description = $_POST['description']; 
+			$url = $_POST['url']; 
+			 print_r($url);
+			 echo "<br>";
+			 
+			 $description = $_POST['description']; 
 			 print_r($description);
 			 echo "<br>";
 			
@@ -57,26 +65,26 @@
 			 print_r($year);
 			 echo "<br>";
 			 
-			 $url = $_POST['url']; 
-			 print_r($url);
-			 echo "<br>";
-			 
-			$movie = $_POST['movie'];  
-			 print_r($movie);
-			 echo "<br>";
-			 
-			$genre = $_POST['genre'];  
+			 $genre = $_POST['genre'];  
 			 print_r($genre);
 			 echo "<br>";
 			 
-			$director = $_POST['director']; 
-			 print_r($director);
-			 echo "<br>"; 
-			 
-			$rating = $_POST['rating'];
-                         print_r($rating);
+			$actor = $_POST['actor'];  
+			 print_r($actor);
 			 echo "<br>";
-  
+			 
+			$gender = $_POST['gender'];  
+			 print_r($gender);
+			 echo "<br>";
+			 
+			 $age = $_POST['age'];  
+			 print_r($age);
+			 echo "<br>";
+			 
+			 $director = $_POST['director']; 
+			 print_r($director);
+			 echo "<br>";
+		    
 			
 			$files = $_FILES['file'];
 			 
@@ -88,34 +96,34 @@
 			  
 			  $target = 'upload/'.$filename;
 			  
-			  $q = " INSERT INTO images(artist, description, year, poster) VALUES  ('$artist','$description','$year','$target')";
-			 
-			  $query =  mysqli_query($con,$q);
 			  
-			  $u = "INSERT INTO videourl (url) VALUES ('$url')";
-			  
-			  $v = mysqli_query($con,$u);
-			  
-			  /*if (!$check1_res) {
-               printf("Error: %s\n", mysqli_error($con));
-                    exit();
-                   }*/
-				
-               $r ="INSERT INTO movie ( movie ) VALUES ('$movie')";
-               				 
-			   $r =  mysqli_query($con,$r);
-			  
-			  
-			   $qt = "INSERT INTO genres ( genre,director) VALUES ('$genre','$director')";
 			   
-			  
-			  
-		       $queryt =  mysqli_query($con,$qt);
-			   
-			    
-                $sa = "INSERT INTO ratee (rate) VALUES ('$rating')";				
+                $sa = "INSERT INTO actors( actor,gender,age) VALUES ('$actor','$gender','$age')";				
+				       
+				$sa =  mysqli_query($con,$sa);
 				
-				$sa =  mysqli_query($con, $sa);
+				 $qt = "INSERT INTO genre (genre) VALUES ('$genre')";
+			   
+		         $queryt =  mysqli_query($con,$qt);
+				 
+				 
+				  $d = "INSERT INTO director (director_name) VALUES ('$director')";
+			   
+		         $dr =  mysqli_query($con,$d);
+				 
+				 
+				  $qrty = "INSERT INTO mov_review(description,year,poster,genre_id,actor_id) VALUES  ('$description','$year','$target',(select genre_id from genre where genre ='$genre'),
+				 (select actor_id from actors where actor='$actor'))";
+			  
+			      $qet =  mysqli_query($con,$qrty);
+				 
+                 $rty = "INSERT INTO movie ( movie_name,rating,url,movie_review_id,director_id) VALUES ('$movie','$rating','$url',
+				 (select movie_review_id from mov_review where description='$description'),(select director_id from director where director_name ='$director'))";
+				 
+				 $wow =  mysqli_query($con,$rty);
+			       
+			  
+			   
 			
 			   $msg = "";
 		
@@ -131,7 +139,13 @@
   	                      }
 		  
 				     
-			           $row = mysqli_query($con,"SELECT v.url,i.artist,m.movie,i.description,i.year,i.poster from genres g inner join images i on g.id=i.id inner join movie m on  g.id=m.id inner join videourl v on  g.id=v.id");
+			           $row = mysqli_query($con,"Select m.movie_name,a.actor,r.description,r.year,r.poster,m.url from movie m inner join  mov_review r 
+					     on m.movie_review_id = r.movie_review_id inner join actors a on a.actor_id = r.actor_id ");
+						 
+			                /*if (!$check1_res) {
+                               printf("Error: %s\n", mysqli_error($con));
+                                exit();
+                                 }*/
 				       
 					  
 					   
@@ -140,8 +154,8 @@
 						    ?>
 				
 				            <tr>
-							<td> <?php echo $result['movie']; ?> </td>
-							<td> <?php echo $result['artist']; ?> </td>
+							<td> <?php echo $result['movie_name']; ?> </td>
+							<td> <?php echo $result['actor']; ?> </td>
 				            <td> <?php echo $result['description']; ?> </td>
 					        <td> <?php echo $result['year']; ?> </td>
 		                    <td> <img src=" <?php echo $result['poster']; ?>"></td>
@@ -168,6 +182,8 @@
 </html>
 
 
+		
+          
 
 
 
